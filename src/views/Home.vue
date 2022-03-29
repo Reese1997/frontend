@@ -1,5 +1,6 @@
 <template>
-	<div class="col-md-8 col-xs-12">
+<section>
+  <div class="col-md-8 col-xs-12">
 
   <div class="home"> 
 <div class="hero-background">
@@ -17,9 +18,9 @@
   </div>
 </div>
   </div>
-
   </div>
-
+</section>
+	
 </template>
 
 <script>
@@ -31,17 +32,23 @@ export default {
 <style scoped>
 * {
   font-family: 'Bebas Neue', cursive;
-font-family: 'League Gothic', sans-serif;
-font-family: 'Smooch Sans', sans-serif;
+  font-family: 'League Gothic', sans-serif;
+  font-family: 'Smooch Sans', sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url("https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"); 
- background-size: cover;
 }
+
+section {
+  height: 100vh;
+  width: 100%;
+  background-image: url("https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+  background-size: cover;
+}
+
 .quote {
   text-align: center;
   background-color: #1b1b1d;
- color: rgb(5, 2, 2);
+  color: rgb(5, 2, 2);
   min-height: 100vh;
   margin: 0;
   display: flex;
@@ -161,13 +168,12 @@ ul a:hover::after {
 
 /*hero-section*/
 .hero-background {
-  height: 120vh;
-  background-color: black;
-  background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
   display: flex;
+  background: transparent;
   align-items: center;
+  height: 100vh;
 }
 .hero-section-wrapper {
   padding-left: 120px;
@@ -281,7 +287,6 @@ ul a:hover::after {
 
   /*****hero-section****/
   .hero-background {
-    height: 100vh;
   }
   .hero-section-wrapper {
     padding-left: 15px;
