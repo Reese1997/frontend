@@ -13,7 +13,7 @@
      <label>Contact</label>
     <input type="contact" required v-model="contact">
 
-    <router-link :to="{ path: '/contact/' }"><button>LOG IN</button></router-link>
+    <router-link :to="{ path: '/products/' }"><button>LOG IN</button></router-link>
 
     <!-- <p>Don't have an Account?<router-link :to="{name :'Register'}"> 
              sign up
@@ -34,7 +34,7 @@ export default {
 
   methods: {
     handleSubmit() {
-      fetch("https://booking--system-coach-client.herokuapp.com/contact", {
+      fetch("https://rjbackendpos.herokuapp.com/contact", {
         method: "POST",
         body: JSON.stringify({
           name: this.name,

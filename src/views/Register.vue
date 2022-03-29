@@ -71,7 +71,7 @@ export default {
   methods: {
     register() {
       console.log(this.name, this.email, this.password);
-      fetch("https://booking--system-coach-client.herokuapp.com/users", {
+      fetch("https://rjbackendpos.herokuapp.com/users", {
         method: "POST",
         body: JSON.stringify({
           name: this.name,
