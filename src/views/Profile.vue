@@ -31,7 +31,7 @@ export default {
   },
 mounted() {
     if (localStorage.getItem("jwt")) {
-      fetch("http://localhost:9990/products"  , {
+      fetch("https://rjbackendpos.herokuapp.com/products"  , {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -43,7 +43,7 @@ mounted() {
           this.users = json;
           this.users.forEach(async (user) => {
             await fetch(
-              "https://localhost:9990/users/" + user._id,
+              "https://rjbackendpos.herokuapp.com/users/" + user._id,
               {
                 method: "GET",
                 headers: {
