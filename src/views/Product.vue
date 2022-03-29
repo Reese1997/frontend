@@ -23,7 +23,7 @@ data(){
 },
 mounted() {
     if (localStorage.getItem("jwt")) {
-      fetch("http://localhost:9990/products", {
+      fetch("http://localhost:5000/products", {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

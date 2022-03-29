@@ -7,11 +7,12 @@
   <div class="hero-section-wrapper">
     <p class="hero-text">Current Mission</p>
     <h1 class="hero-header animate__animated animate__backInRight">Get Lit
-<br> Look Lit.<br> Feel good.</h1>
+<br> Look Lit.<br> Feel Lit.</h1>
 <!-- <br> Perform at your best.</h1> -->
     <button class="hero-button">
       <span>Cop it Now</span>
       </button>
+      
        <!-- <button class="hero-button">
       <span>Online class</span>
       </button> -->
