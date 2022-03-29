@@ -14,7 +14,7 @@
      <label>Contact</label>
     <input type="contact" required v-model="contact">
 
-    <router-link :to="{ path: '/bookings/' }"><button>LOG IN</button></router-link>
+    <router-link :to="{ path: '/products/' }"><button>LOG IN</button></router-link>
     
   </form>
 

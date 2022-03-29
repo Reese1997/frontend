@@ -7,7 +7,6 @@ import Bookings from '../views/Cart'
 import Profile from '../views/Profile.vue'
 import Product from '../views/Product.vue'
 
-
 const routes = [
   {
     path: '/',
@@ -45,8 +44,6 @@ const routes = [
     name: 'Product',
     component: Product
   }
-    
-  
 ]
 
 const router = createRouter({

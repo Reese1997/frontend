@@ -1,5 +1,4 @@
 <template>
-<h1>Product</h1>
 <div class="card"   v-for="blog of blogs"
         :key="blog._id"
         :to="{ name: 'BlogDetails', params: { id: blog._id } }"

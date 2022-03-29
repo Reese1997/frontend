@@ -37,7 +37,7 @@
                     <div class="col-xl-4 col-lg-4 mb-50">
                         <div class="footer-widget">
                             <div class="footer-logo">
-                                <a href="index.html"><img src="../assets/true.png" class="img-fluid" alt="logo"></a>
+                                <a href="index.html"><img src="../assets/shh.jpeg" class="img-fluid" alt="logo"></a>
                             </div>
                             <div class="footer-text">
                                 <p>When the spirits are low, when the day appears dark, when work becomes monotonous, when hope hardly seems worth having, just mount a bicycle and go out for a spin down the road, without thought on anything but the ride you are taking..</p>
@@ -97,7 +97,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 text-center text-lg-left">
                         <div class="copyright-text">
-                            <p>Copyright &copy; 2021, All Right Reserved <a href="https://codepen.io/anupkumar92/">TRUECADENCE</a></p>
+                            <p>Copyright &copy; 2021, All Right Reserved <a href="https://codepen.io/anupkumar92/">SHEESH KICKS</a></p>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">

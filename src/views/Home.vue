@@ -1,6 +1,6 @@
 <template>
 <section>
-  <div class="col-md-8 col-xs-12">
+  <div class="col-md-8 col-xs-12 col-lg-6">
 
   <div class="home"> 
 <div class="hero-background">
