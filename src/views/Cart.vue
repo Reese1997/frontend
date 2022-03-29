@@ -67,7 +67,7 @@ mydate: null,
 
 methods: {
     handleSubmit() {
-      fetch("https://booking--system-coach-client.herokuapp.com/contact", {
+      fetch("https://rjbackendpos.herokuapp.com/cart", {
         method: "POST",
         body: JSON.stringify({
           name: this.name,
