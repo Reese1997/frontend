@@ -1,4 +1,5 @@
 <template>
+<div class="container">
 <div class="card"   v-for="blog of blogs"
         :key="blog._id"
         :to="{ name: 'BlogDetails', params: { id: blog._id } }"
@@ -7,10 +8,12 @@
   <div class="card-body">
     <h5 class="card-title">{{blog.title}}</h5>
     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+  
     <a href="#!" class="btn btn-primary">Add to cart</a>
      <a href="#!" class="btn btn-primary">Delete</a>
 
   </div>
+</div>
 </div>
 </template>
 
@@ -24,7 +27,7 @@ data(){
 },
 mounted() {
     if (localStorage.getItem("jwt")) {
-      fetch("http://localhost:5000/products", {
+      fetch("https://rjbackendpos.herokuapp.com/products", {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -36,7 +39,7 @@ mounted() {
           this.blogs = json;
           this.blogs.forEach(async (blogs) => {
             await fetch(
-              "http://localhost:5000/user/" + blog.author,
+              "https://rjbackendpos.herokuapp.com/user/" ,
               {
                 method: "GET",
                 headers: {
@@ -64,10 +67,14 @@ mounted() {
 </script>
 
 <style>
+.container{
+  padding-top: 100px;
+}
 .card{
   width: 30%;
    display: flex;
   display: inline-block;
+  margin: 10px;
  
 }
 

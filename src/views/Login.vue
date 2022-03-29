@@ -1,19 +1,16 @@
 <template>
 <section class="login animate__animated animate__slideInLeft">
-<form @submit.prevent="handleSubmit">
+<form @submit.prevent="Login">
           <label class="h4 text-dark">Already a Member?</label>
               <h1 class="log">Log in:</h1>
     <br /><br />
-    <label>First Name</label>
-    <input type="name " required v-model="name">
+    <label>email</label>
+    <input type="text " required v-model="email">
 
-     <label>Last Name</label>
-    <input type="last" required v-model="last">
+     <label>Password</label>
+    <input type="password" required v-model="password">
 
-     <label>Contact</label>
-    <input type="contact" required v-model="contact">
-
-    <router-link :to="{ path: '/products/' }"><button>LOG IN</button></router-link>
+  <button type="submit">LOG IN</button>
 
     <!-- <p>Don't have an Account?<router-link :to="{name :'Register'}"> 
              sign up
@@ -26,27 +23,30 @@
 export default {
   data() {
     return {
-      name: "",
-      last: "",
-      contact: null,
-    };
+      email: "",
+      password: "",
+          };
   },
 
   methods: {
-    handleSubmit() {
-      fetch("https://rjbackendpos.herokuapp.com/contact", {
-        method: "POST",
+    Login() {
+      fetch("https://rjbackendpos.herokuapp.com/users", {
+        method: "PATCH",
         body: JSON.stringify({
-          name: this.name,
           email: this.email,
-          message: this.message,
+          password: this.password,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          
         },
       })
         .then((res) => res.json())
-        .then((data) => (this.contact = data))
+        .then((json) => {
+                    localStorage.setItem("jwt", json.jwt)
+                    alert("Logged IN")
+
+        })
         .catch((err) => console.log(err.message));
     },
   },

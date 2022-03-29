@@ -265,6 +265,9 @@ ul {
   background: #202020;
   padding: 25px 0;
 }
+.copyright-area .container{
+  padding-top: 0;
+}
 .copyright-text p {
   margin: 0;
   font-size: 14px;
