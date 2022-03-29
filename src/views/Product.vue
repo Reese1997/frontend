@@ -9,6 +9,8 @@
     <h5 class="card-title">{{blog.title}}</h5>
     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
     <a href="#!" class="btn btn-primary">Add to cart</a>
+     <a href="#!" class="btn btn-primary">Delete</a>
+
   </div>
 </div>
 </template>
@@ -33,9 +35,9 @@ mounted() {
         .then((response) => response.json())
         .then((json) => {
           this.blogs = json;
-          this.blogs.forEach(async (blog) => {
+          this.blogs.forEach(async (blogs) => {
             await fetch(
-              "http://localhost:9990/users" + blog.author,
+              "http://localhost:5000/user/" + blog.author,
               {
                 method: "GET",
                 headers: {
@@ -64,7 +66,10 @@ mounted() {
 
 <style>
 .card{
-  width: 50%;
+  width: 30%;
+   display: flex;
+  display: inline-block;
+ 
 }
 
 </style>

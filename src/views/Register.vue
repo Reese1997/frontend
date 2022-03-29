@@ -139,7 +139,7 @@ body {
 }
 
 form {
-  height: 480px;
+  height: 372px;
   max-width: 470px;
   margin: 30px auto;
   background: white;
