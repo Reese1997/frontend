@@ -100,6 +100,7 @@ p {
 .register {
   min-height: 100vh;
   padding-top: 40px;
+  margin-top: -100px;
 
 }
 body {

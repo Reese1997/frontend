@@ -3,14 +3,13 @@
 <div class="card"   v-for="blog of blogs"
         :key="blog._id"
         :to="{ name: 'BlogDetails', params: { id: blog._id } }"
-      >>
+      >
   <img :src="blog.img" class="card-img-top" alt="Fissure in Sandstone"/>
   <div class="card-body">
     <h5 class="card-title">{{blog.title}}</h5>
-    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-  
+
     <a href="#!" class="btn btn-primary">Add to cart</a>
-     <a href="#!" class="btn btn-primary">Delete</a>
+    <a href="#!" class="btn btn-primary">Delete</a>
 
   </div>
 </div>

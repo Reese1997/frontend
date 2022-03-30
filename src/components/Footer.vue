@@ -40,7 +40,7 @@
                                 <a href="index.html"><img src="../assets/shh.jpeg" class="img-fluid" alt="logo"></a>
                             </div>
                             <div class="footer-text">
-                                <p>When the spirits are low, when the day appears dark, when work becomes monotonous, when hope hardly seems worth having, just mount a bicycle and go out for a spin down the road, without thought on anything but the ride you are taking..</p>
+                                <p>When the spirits are low, when the day appears dark, when work becomes monotonous, when hope hardly seems worth having, just get yourself a new pair of kicks, go out for a spin down the road, without thought on anything but how fly you are looking..</p>
                             </div>
                             <div class="footer-social-icon">
                                 <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>

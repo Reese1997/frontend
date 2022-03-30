@@ -111,10 +111,10 @@ border: 3px solid #138496
 form{
   height: 600px; 
   max-width: 470px;
-  margin: 70px auto;
+  margin: 77px;
   background: white;
   text-align: left;
-  padding: 50px;
+  padding: 8px;
   border-radius: 10px;
   border-style: ridge;
   background: rgba(255, 255, 255, 0.15);
