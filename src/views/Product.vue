@@ -8,8 +8,7 @@
   <div class="card-body">
     <h5 class="card-title">{{blog.title}}</h5>
 
-    <a href="#!" class="btn btn-primary">Add to cart</a>
-    <a href="#!" class="btn btn-primary">Delete</a>
+    <button @click="addToCart(blog._id)">Add to cart</button>
 
   </div>
 </div>
@@ -24,6 +23,54 @@ data(){
     }
     
 },
+methods:{
+  checkOut(){
+    fetch("https:///rjbackendpos.herokuapp.com/cart/", {
+            method: "DELETE",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+              Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+            },
+          })
+            .then((response) => response.json())
+            .then((json) => {
+              alert("Items Purchases");
+              location.reload();
+            })
+            .catch((err) => {
+              alert(err);
+            });
+  },
+  addToCart(id) {
+      if (!localStorage.getItem("jwt")) {
+        alert("User not logged in");
+        return this.$router.push({ name: "Login" });
+      } else {
+        let cart = 1;
+        fetch(`https://rjbackendpos.herokuapp.com/cart/${id}/`, {
+          method: "POST",
+          body: JSON.stringify({
+            quantity: cart,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+          },
+        })
+          .then((response) => response.json())
+          .then((json) => {
+            alert("Added to Cart");
+            location.reload();
+                    return this.$router.push({ name: "cart" });
+
+          })
+          .catch((err) => {
+            alert(err);
+          });
+      }
+    },
+}
+,
 mounted() {
     if (localStorage.getItem("jwt")) {
       fetch("https://rjbackendpos.herokuapp.com/products", {
@@ -37,20 +84,7 @@ mounted() {
         .then((json) => {
           this.blogs = json;
           this.blogs.forEach(async (blogs) => {
-            await fetch(
-              "https://rjbackendpos.herokuapp.com/user/" ,
-              {
-                method: "GET",
-                headers: {
-                  "Content-type": "application/json; charset=UTF-8",
-                  Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-                },
-              }
-            )
-              .then((response) => response.json())
-              .then((json) => {
-                blog.author_name = json.name;
-              });
+          
           });
         })
         .catch((err) => {

@@ -1,240 +1,140 @@
 <template>
-<section class="contact">
-<div id="contact" class="container">
-  <div class="row">
-    <div class="col">
-     <form @submit.prevent="handleSubmit">
-          <!-- <label class="h4 text-dark">Let's Get Started!</label> -->
-          <atom-spinner
-  :animation-duration="1000"
-  :size="60"
-  color="#ff1d5e"
-/>
-              <h1 class="book">Add your product:</h1>
-    <br /><br /> 
-    <label>First Name</label>
-    <input type="name" required v-model="name">
+<section class="cont">
 
-     <label>Last Name</label>
-    <input type="last" required v-model="last">
 
-    <input type="Purchased Date" placeholder="Purchased Date" /><br /><br />
-   
-<!-- <input type="time" v-model="mytime">
-<h1>{{ mytime }}</h1>
-<input type="date" v-model="mydate">
-  </form>
+  <h3>Your Cart</h3>
+  <main id="cart">
+    <div class="container-fluid" v-if="cart">
+      <div class="row">
+        <div
+          class="col-12 col-sm-8 items"
+          v-for="carts of cart"
+          :key="carts._id"
+        >
+          <div class="cartItem row" v-for="data of carts.cart" :key="data._id">
+            <div class="col-3 mb-2">
+              <img class="w-100" :src="data.img" alt="alt image" />
+            </div>
+            <div class="col-5 mb-2">
+              <h6 class=""></h6>
+
+              <p class="pl-1 mb-0">Item: {{ data.title }}</p>
+            </div>
+            <div class="col-2">
+              <p class="cartItemQuantity p-1 text-center">
+                Quantity: {{ data.quantity.quantity }}
+              </p>
+            </div>
+            <div class="col-4">
+              <p id="cartItem1Price">PRICE: R{{ data.price }}</p>
+            </div>
+          </div>
+          <button class="btn btn-warning" @click="deleteItem(carts._id)">
+            Remove
+          </button>
+          <hr />
+        </div>
+        <div class="col-12">
+          <h3>total: {{ total }}</h3>
+          <div v-if="total > 0">
+            <button id="btn-checkout" class="btn btn-primary" @click="checkOut">
+              <span>Checkout</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col">
-      <form @submit.prevent="handleSubmit">
-    <h1 class="address">Address Details:</h1>
-    <br /><br />
-     <label>Enter Area</label>
-    <input type="area" required v-model="area">
-
-     <label>Postal Code</label>
-    <input type="postal" required v-model="postal"> -->
-
-    <textarea class="mess" name="message"></textarea><br /><br />
-    <router-link :to="{ path: '/profile/' }"><button>LOG IN</button></router-link>
- </form>
-    </div>
-  
-  </div>
-</div>
-
- 
+  </main>
   </section>
 </template>
 
 <script>
 export default {
-  components: { },
   data() {
     return {
-      name: "",
-      last: "",
-      role: "",
-      terms: false,
+      cart: null,
+
     };
   },
-  data() {
-return {
-mytime: null,
-mydate: null,
-};
-},
+  methods: {
+    checkOut() {
 
-methods: {
-    handleSubmit() {
-      fetch("https://rjbackendpos.herokuapp.com/cart", {
-        method: "POST",
+          fetch("https://rjbackendpos.herokuapp.com/cart/", {
+            method: "DELETE",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+              Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+            },
+          })
+            .then((response) => response.json())
+            .then((json) => {
+              alert("Items Purchases");
+              location.reload();
+            })
+            .catch((err) => {
+              alert(err);
+            });
+    },
+    deleteItem(id) {
+      fetch("https://rjbackendpos.herokuapp.com/cart/single", {
+        method: "DELETE",
         body: JSON.stringify({
-          name: this.name,
-          email: this.email,
-          message: this.message,
+          id: id,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
         },
       })
-        .then((res) => res.json())
-        .then((data) => (this.contact = data))
-        .catch((err) => console.log(err.message));
+        .then((response) => response.json())
+        .then((json) => {
+          location.reload();
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+  },
+  mounted() {
+    if (!localStorage.getItem("jwt")) {
+      alert("Please Create Account First");
+      return this.$router.push({ name: "Shop" });
+    } else {
+      fetch("https://rjbackendpos.herokuapp.com/cart/", {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          this.cart = json;
+          console.log(this.cart);
+        })
+        .catch((err) => {
+          alert(err);
+        });
+      
+    }
+  },
+  computed: {
+    total: function () {
+      var list = this.cart;
+      var sum = 0;
+      for (var listProps in list) {
+        list[listProps].cart.forEach(function (cart) {
+          sum += cart.quantity.quantity * cart.price;
+        });
+      }
+      return sum;
     },
   },
 };
-
 </script>
 
-<style>
-.address {
-  color: white;
-}
-.book{
-    color: white;
-}
-.contact {
-  min-height: 100vh;
-}
-.h4 {
-text-align: center;
-}
-h1{
-  color: white;
-}
-body {
-  width: 100%;
-  height: 100%;
-  /* background-image: url(../assets/landing.jpeg); */
-}
-/* .layer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 147, 173, 0,9);
-  overflow: auto;
-} */
-.form-data {
-  margin-top: 15%;
-  background-color: #FFF;
-}
-.form-body {
-  padding: 20px;
-}
-.form-head {
-  padding: 10px;
-  border-bottom: 1px solid #CCC;
-}
-.form-head h2 {
-  font-size: 22px;
-  font-weight: 600
-}
-.no-margin {
-margin: 0px;
-}
-.form-row {
-  margin-bottom: 15px;
-}
-.form-control{
-  background-color: #AAA;
-}
-.form-control:hover {
-box-shadow: none;
-border: 3px solid #138496
-}
-.content {
-  margin-top: 15%;
-  text-align: center;
-  color: #FFF;;
-  padding: 30px;
-}
-.content h1{
-  font-weight: 600;
-  font-size: 3.5rem;
-}
-@media screen and (max-width: 967px){
-
-}
-
-/* section {
-  height: 100vh;
-} */
-
-form {
-  max-width: 470px;
-  margin: 30px auto;
-  background: white;
-  text-align: left;
-  padding: 50px;
-  border-radius: 10px;
-  border-style: ridge;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-label {
-  color: rgb(58, 55, 55);
-  display: inline-block;
-  margin: 25px 0 15px;
-  font-size: 1 em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-input,
-select {
-  display: block;
-  /* padding: 10px 6px; */
-  width: 100%;
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid rgb(77, 135, 202);
-  color: rgb(197, 5, 5);
-}
-
-.pill {
-  display: inline block;
-  margin: 20px 10px 0 0;
-  padding: 6px 12px;
-  background: #eee;
-  border-radius: 20px;
-  font-size: 15px;
-  letter-spacing: 1px;
-  font-weight: bold;
-  color: rgb(197, 5, 5);
-  cursor: pointer;
-}
-button {
-  background: rgb(197, 5, 5);
-  /* border: ; */
-  padding: 20px 30px;
-  margin-top: 20px;
-  color: white;
-  border-radius: 20px;
-}
-.submit {
-  text-align: center;
-}
-.error {
-  color: #ff0062;
-  margin-top: 10px;
-  font-size: 0.9em;
-  font-weight: bold;
-}
-
-.mess {
-  width: 100%;
-}
-
-.but {
-  margin-left: 40%;
-  padding: 15px 29px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+<style scoped>
+.cont{
+  margin-top: 100px;
 }
 </style>

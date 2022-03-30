@@ -19,7 +19,9 @@
       <li class="nav-li animate__animated animate__fadeInLeft">
         <router-link :to="{ name: 'Contact'}">Contact</router-link>
         </li>
-        
+        <li class="nav-li animate__animated animate__fadeInLeft">
+        <router-link :to="{ name: 'cart'}">Cart</router-link>
+        </li>
     </ul>
     
     <button class="mobile-toggle" aria-controls="ul-navigation" aria-expanded="false">
