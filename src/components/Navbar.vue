@@ -60,20 +60,7 @@ font-family: 'Smooch Sans', sans-serif;
   margin: 0;
   padding: 0;
 }
-.quote {
-  text-align: center;
-  background-color: #1b1b1d;
- color: #fff;
-  min-height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/moon.png); */
-  background-repeat: no-repeat;
-  background-size: 500px 500px;
-  background-position: top right;
-}
+
 p { 
   font-size: 3rem;
   text-indent: -1.3rem;
@@ -98,7 +85,7 @@ p:after  { content: close-quote; }
 }
 nav{
   z-index: 100;
-  position: absolute;
+  position: fixed;
   float: left;
 }
 .navbar {

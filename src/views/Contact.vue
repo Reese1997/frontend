@@ -70,13 +70,7 @@ body {
   height: 100%;
   /* background-image: url(../assets/landing.jpeg); */
 }
-/* .layer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 147, 173, 0,9);
-  overflow: auto;
-} */
+
 .form-label {
   margin-top: 15%;
   background-color: #FFF;
@@ -118,10 +112,6 @@ border: 3px solid #138496
 @media screen and (max-width: 967px){
 
 }
-
-/* section {
-  height: 100vh;
-} */
 
 form{
   height: 600px; 

@@ -5,7 +5,7 @@
   <div class="home"> 
 <div class="hero-background">
   <div class="hero-section-wrapper">
-    <p class="hero-text">Current Mission</p>
+    <!-- <p class="hero-text">Current Mission</p> -->
     <h1 class="hero-header animate__animated animate__backInRight">Get Lit
 <br> Look Lit.<br> Feel Lit.</h1>
 <!-- <br> Perform at your best.</h1> -->
@@ -14,7 +14,7 @@
       </button>
       
        <!-- <button class="hero-button">
-      <span>Online class</span>
+      <span>Check out our apparell</span>
       </button> -->
   </div>
 </div>
@@ -287,8 +287,7 @@ ul a:hover::after {
   }
 
   /*****hero-section****/
-  .hero-background {
-  }
+
   .hero-section-wrapper {
     padding-left: 15px;
   }

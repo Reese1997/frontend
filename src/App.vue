@@ -21,8 +21,8 @@ export default {
 #app {
  font-family: 'Bebas Neue', cursive;
 font-family: 'League Gothic', sans-serif;
-font-family: 'Smooch Sans', sans-serif;  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+font-family: 'Roboto', sans-serif;
+font-family: 'Smooch Sans', sans-serif;
   text-align: center;
 }
 </style>
