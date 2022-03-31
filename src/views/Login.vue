@@ -1,6 +1,7 @@
 <template>
 <section class="login animate__animated animate__slideInLeft">
-<form @submit.prevent="Login">
+  <div class="forme">
+    <form @submit.prevent="Login">
           <label class="h4 text-dark">Already a Member?</label>
               <h1 class="log">Log in:</h1>
     <br /><br />
@@ -16,6 +17,8 @@
              sign up
           </router-link> </p> -->
   </form>
+  </div>
+
 </section>
 </template>
 
@@ -109,11 +112,13 @@ border: 3px solid #138496
 
 }
 
+.forme {
+  margin: none;
+}
 form{
   height: 734px; 
   max-width: 777px;
   max-height: 552px;
-  margin: 202px;
   background: white;
   text-align: left;
   padding: 8px;
@@ -125,6 +130,7 @@ form{
   -webkit-backdrop-filter: blur(16px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  margin: none !important;
 }
 label {
   color: rgb(58, 55, 55);
