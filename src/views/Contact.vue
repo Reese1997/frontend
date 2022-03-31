@@ -32,7 +32,7 @@ export default {
       name: "",
       last: "",
       email: "",
-      contact: 1,
+      contact: "",
       message: "",
     };
   },

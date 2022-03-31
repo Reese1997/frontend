@@ -109,7 +109,7 @@ border: 3px solid #138496
 
 }
 
-form{
+/* form{
   height: 734px; 
   max-width: 777px;
   max-height: 552px;
@@ -125,7 +125,7 @@ form{
   -webkit-backdrop-filter: blur(16px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-}
+} */
 label {
   color: rgb(58, 55, 55);
   display: inline-block;
