@@ -100,7 +100,7 @@ p {
 .register {
   min-height: 100vh;
   padding-top: 40px;
-  margin-top: -100px;
+  margin-top:0px;
 
 }
 body {
@@ -110,7 +110,7 @@ body {
   /* background-image: url(../assets/landing.jpeg); */
 }
  .content {
-   margin-top: 40%;
+   margin-top: 0%;
    text-align: center;
    color: #FFF;
  /* padding: 30px; */
@@ -128,8 +128,8 @@ form {
   /* height: 372px; */
   max-width: 470px;
   max-height: 400px;
-  margin: 196px auto;
   background: white;
+  margin-left: 10% !important;
   text-align: left;
   padding: 50px;
   border-radius: 10px;

@@ -1,5 +1,5 @@
 <template>
-<div v-if="contact">
+<div>
 
 <section class="login animate__animated animate__slideInRight">
 <form @submit.prevent="handleSubmit">
@@ -56,7 +56,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+
 .login {
   min-height: 100vh;
   
@@ -76,7 +78,7 @@ body {
   background-color: #FFF;
 }
 .form-body {
-  padding: 20px;
+  padding: opx;
 }
 .form-label {
   padding: 10px;
@@ -117,7 +119,8 @@ border: 3px solid #138496
 form{
   height: 600px; 
   max-width: 470px;
-  margin: 30px auto;
+margin-top: 20%;
+margin-left: 30%;
   background: white;
   text-align: left;
   padding: 50px;

@@ -1,6 +1,39 @@
 <template>
-<section class="login animate__animated animate__slideInLeft">
+<!-- <section class="login animate__animated animate__slideInLeft">
+
+  <div class="spaceTaker">
+
+  </div>
   <div class="forme">
+    <form @submit.prevent="Login">
+          <label class="h4 text-dark">Already a Member?</label>
+              <h1 class="log">Log in:</h1>
+    <br /><br />
+    <label>email</label>
+    <input type="text " required v-model="email">
+
+     <label>Password</label>
+    <input type="password" required v-model="password">
+
+  <button type="submit">LOG IN</button> -->
+
+    <!-- <p>Don't have an Account?<router-link :to="{name :'Register'}"> 
+             sign up
+          </router-link> </p> -->
+  <!-- </form>
+  </div>
+
+</section> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+<section class="login animate__animated animate__slideInLeft">
+
+  <div class="spaceTaker">
+
+  </div>
+  <div class="form">
     <form @submit.prevent="Login">
           <label class="h4 text-dark">Already a Member?</label>
               <h1 class="log">Log in:</h1>
@@ -19,7 +52,11 @@
   </form>
   </div>
 
-</section>
+</section>    </div>
+  </div>
+</div>
+
+
 </template>
 
 <script>
@@ -56,7 +93,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+
 .login {
   min-height: 100vh;
   color: black;
@@ -108,15 +147,22 @@ border: 3px solid #138496
   font-weight: 600;
   font-size: 3.5rem;
 }
+.forme {
+  margin-left: 17%;
+  
+}
+
+form {
+  margin: none;
+}
 @media screen and (max-width: 967px){
 
 }
 
-.forme {
-  margin: none;
-}
+
 form{
-  height: 734px; 
+  height: 434px; 
+  width: 500px;
   max-width: 777px;
   max-height: 552px;
   background: white;
@@ -130,7 +176,8 @@ form{
   -webkit-backdrop-filter: blur(16px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  margin: none !important;
+  /* margin: none !important; */
+  margin-left: 25%;
 }
 label {
   color: rgb(58, 55, 55);
