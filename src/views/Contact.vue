@@ -19,9 +19,7 @@
   </form>
 
 </section>
-</div>
-<div v-else>
-loading contact...
+
 </div>
 </template>
 
