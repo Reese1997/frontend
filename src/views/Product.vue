@@ -1,4 +1,15 @@
 <template>
+<input type="text"  placeholder="search blogs" v-model="search">
+
+  <label class="price">
+        Sort Price:
+        <select v-model="price" @change="sortPrice(price)">
+            <option value="">All</option>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </label>
+      
 <div class="container">
 <div class="card"   v-for="blog of blogs"
         :key="blog._id"
@@ -7,6 +18,7 @@
   <img :src="blog.img" class="card-img-top" alt="Fissure in Sandstone"/>
   <div class="card-body">
     <h5 class="card-title">{{blog.title}}</h5>
+    <h5 class="card-title">{{blog.price}}</h5>
 
     <button @click="addToCart(blog._id)">Add to cart</button>
 
@@ -17,10 +29,17 @@
 
 <script>
 export default {
-data(){
-    return{
-      blogs:null
-    }
+
+    props:["post","idx"],
+  // components: { Loader },
+ data() {
+    return {
+      blogs:null,
+      posts: null,
+      filteredProducts: null,
+      title: "",
+      search: "",
+    };
     
 },
 methods:{
@@ -34,7 +53,7 @@ methods:{
           })
             .then((response) => response.json())
             .then((json) => {
-              alert("Items Purchases");
+              alert("Items Purchased!");
               location.reload();
             })
             .catch((err) => {
@@ -69,8 +88,22 @@ methods:{
           });
       }
     },
+    sortPrice(dir) {
+      this.filteredProducts = this.filteredProducts.sort(
+        (a, b) => a.price- b.price
+      );
+      if (dir == "desc") this.filteredProducts.reverse();
+    },
+
 }
 ,
+computed: {
+    filteredProducts: function () {
+      return this.search.filter((blog) => {
+        return blog.title.match(this.search);
+      });
+    },
+  },
 mounted() {
     if (localStorage.getItem("jwt")) {
       fetch("https://rjbackendpos.herokuapp.com/products", {
@@ -83,7 +116,8 @@ mounted() {
         .then((response) => response.json())
         .then((json) => {
           this.blogs = json;
-          this.blogs.forEach(async (blogs) => {
+          this.filteredProducts = json;
+          this.blogs.forEach(async (blog) => {
           
           });
         })
@@ -109,6 +143,9 @@ mounted() {
   display: inline-block;
   margin: 10px;
  
+}
+.price{
+  margin-top: 6rem;
 }
 
 </style>
