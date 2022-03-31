@@ -24,5 +24,6 @@ font-family: 'League Gothic', sans-serif;
 font-family: 'Roboto', sans-serif;
 font-family: 'Smooch Sans', sans-serif;
   text-align: center;
+  margin-top: 25%;
 }
 </style>

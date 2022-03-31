@@ -110,7 +110,7 @@ body {
   /* background-image: url(../assets/landing.jpeg); */
 }
  .content {
-   margin-top: 19%;
+   margin-top: 40%;
    text-align: center;
    color: #FFF;
  /* padding: 30px; */
