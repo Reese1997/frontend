@@ -3,7 +3,7 @@
 
 <section class="login animate__animated animate__slideInRight">
 <form @submit.prevent="handleSubmit">
-          <label class="h4 text-light">How can we help?</label>
+          <label class="h4 text-dark">How can we help?</label>
               <h1 class="log">Lets get in touch:</h1>
     <br /><br />
     <label>First Name</label>
@@ -61,9 +61,11 @@ export default {
 <style>
 .login {
   min-height: 100vh;
+  
 }
 .head {
   text-align: center;
+  color: black;
 }
 body {
   width: 100%;
@@ -108,6 +110,7 @@ border: 3px solid #138496
 .content h1{
   font-weight: 600;
   font-size: 3.5rem;
+  
 }
 @media screen and (max-width: 967px){
 
@@ -170,6 +173,7 @@ button {
 }
 .login {
   text-align: center;
+  
 }
 .error {
   color: #ff0062;
@@ -190,9 +194,9 @@ button {
   cursor: pointer;
 }
 h4{
-  color: white;
+  color: rgb(12, 11, 11);
 }
 .log{
-  color: white;
+  color: rgb(3, 3, 3);
 }
 </style>

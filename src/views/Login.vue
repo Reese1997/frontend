@@ -56,6 +56,7 @@ export default {
 <style>
 .login {
   min-height: 100vh;
+  color: black;
 }
 .head {
   text-align: center;
@@ -109,9 +110,10 @@ border: 3px solid #138496
 }
 
 form{
-  height: 600px; 
-  max-width: 470px;
-  margin: 77px;
+  height: 734px; 
+  max-width: 777px;
+  max-height: 552px;
+  margin: 191px;
   background: white;
   text-align: left;
   padding: 8px;
@@ -188,6 +190,6 @@ h4{
   color: white;
 }
 .log{
-  color: white;
+  color: rgb(7, 6, 6);
 }
 </style>

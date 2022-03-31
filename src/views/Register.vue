@@ -82,20 +82,20 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .reg{
-  color: white;
+  color: rgb(10, 9, 9);
 
 }
 .sign{
-  color: white;
+  color: rgb(15, 14, 14);
 }
 p {
     font-size: 50px;
-
 }
 .par{
   font-size: 20px;
+  color: black;
 }
 .register {
   min-height: 100vh;
@@ -109,15 +109,14 @@ body {
   height: 100%;
   /* background-image: url(../assets/landing.jpeg); */
 }
-
-
  .content {
-   margin-top: 25%;
+   margin-top: 19%;
    text-align: center;
    color: #FFF;
  /* padding: 30px; */
  }
 .content h1{
+  color: black;
   font-weight: 600;
   font-size: 3.5rem;
 }
@@ -129,7 +128,7 @@ form {
   /* height: 372px; */
   max-width: 470px;
   max-height: 400px;
-  margin: 30px auto;
+  margin: 110px auto;
   background: white;
   text-align: left;
   padding: 50px;
