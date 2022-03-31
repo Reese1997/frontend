@@ -113,7 +113,7 @@ form{
   height: 734px; 
   max-width: 777px;
   max-height: 552px;
-  margin: 300px;
+  margin-top: 300px;
   background: white;
   text-align: left;
   padding: 8px;
