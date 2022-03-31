@@ -128,7 +128,7 @@ form {
   /* height: 372px; */
   max-width: 470px;
   max-height: 400px;
-  margin: 110px auto;
+  margin: 196px auto;
   background: white;
   text-align: left;
   padding: 50px;
