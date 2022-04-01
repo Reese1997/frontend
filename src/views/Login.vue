@@ -177,7 +177,7 @@ form{
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   /* margin: none !important; */
-  margin-left: 25%;
+  margin-left: 36%;
 }
 label {
   color: rgb(58, 55, 55);

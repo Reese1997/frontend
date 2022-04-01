@@ -1,5 +1,5 @@
 <template>
-<input type="text"  placeholder="search blogs" v-model="search">
+<input type="text"  placeholder="search blogs" v-model="searchProducts">
 
   <label class="price">
         Sort Price:
@@ -10,17 +10,17 @@
         </select>
       </label>
       
-<div class="container">
-<div class="card"   v-for="blog of blogs"
-        :key="blog._id"
-        :to="{ name: 'BlogDetails', params: { id: blog._id } }"
+<div class="container" v-if="filteredProducts">
+<div class="card"   v-for="product in filteredProducts"
+        :key="product._id"
+        :to="{ name: 'BlogDetails', params: { id: product._id } }"
       >
-  <img :src="blog.img" class="card-img-top" alt="Fissure in Sandstone"/>
+  <img :src="product.img" class="card-img-top" alt="Fissure in Sandstone"/>
   <div class="card-body">
-    <h5 class="card-title">{{blog.title}}</h5>
-    <h5 class="card-title">{{blog.price}}</h5>
+    <h5 class="card-title">{{product.title}}</h5>
+    <h5 class="card-title">{{product.price}}</h5>
 
-    <button @click="addToCart(blog._id)">Add to cart</button>
+    <button @click="addToCart(product._id)">Add to cart</button>
 
   </div>
 </div>
@@ -31,17 +31,45 @@
 export default {
 
     props:["post","idx"],
-  // components: { Loader },
  data() {
     return {
-      blogs:null,
-      posts: null,
-      filteredProducts: null,
-      title: "",
-      search: "",
+      products: [],
+      searchProducts: "",
     };
     
 },
+mounted() {
+    if (localStorage.getItem("jwt")) {
+      fetch("https://rjbackendpos.herokuapp.com/products", {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          this.products = json;
+          this.filteredProducts = json;
+          this.products.forEach(async (blog) => {
+          
+          });
+        })
+        .catch((err) => {
+          alert("User not logged in");
+        });
+    } else {
+      alert("User not logged in");
+      this.$router.push({ name: "Login" });
+    }
+  },
+  computed: {
+    filteredProducts() {
+      return this.products.filter((product) => {
+        return product.title.toLowerCase().match(this.searchProducts.toLowerCase())
+      })
+    }
+  },
 methods:{
   checkOut(){
     fetch("https:///rjbackendpos.herokuapp.com/cart/", {
@@ -97,38 +125,6 @@ methods:{
 
 }
 ,
-computed: {
-    filteredProducts: function () {
-      return this.search.filter((blog) => {
-        return blog.title.match(this.search);
-      });
-    },
-  },
-mounted() {
-    if (localStorage.getItem("jwt")) {
-      fetch("https://rjbackendpos.herokuapp.com/products", {
-        method: "GET",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          this.blogs = json;
-          this.filteredProducts = json;
-          this.blogs.forEach(async (blog) => {
-          
-          });
-        })
-        .catch((err) => {
-          alert("User not logged in");
-        });
-    } else {
-      alert("User not logged in");
-      this.$router.push({ name: "Login" });
-    }
-  },
 };
 
 </script>
